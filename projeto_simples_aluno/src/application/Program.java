@@ -35,7 +35,7 @@ public class Program {
 
 		for (int pos = 1; pos <= 4; pos++ ) {
 			String nomeDisciplina = JOptionPane.showInputDialog("Nome da disciplina "+ pos + " ?");
-			String notaDisciplina = JOptionPane.showInputDialog("Nota da disciplina" + pos + " ?");
+			String notaDisciplina = JOptionPane.showInputDialog("Nota da disciplina " + pos + " ?");
 			Disciplina disciplina = new Disciplina();
 			disciplina.setDisciplina(nomeDisciplina);
 			disciplina.setNota(Double.valueOf(notaDisciplina));
@@ -43,9 +43,15 @@ public class Program {
 			aluno1.getDisciplinas().add(disciplina);
 		}
 		
-		System.out.println(aluno1.toString());
+		int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina ?");
+		
+		if(escolha == 0) {	
+			String disciplinaRemover = JOptionPane.showInputDialog("Qual a disciplina 1, 2, 3, ou 4 ?");
+			aluno1.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue() - 1);
+		}
+		
+		System.out.println(aluno1); /*Descrição do objeto na memoria*/
 		System.out.println("Média do aluno = " + aluno1.getMediaNota());
-		System.out.println(aluno1.getAlunoAprovado() ? "Aprovado" : "Reprovado");
 		System.out.println(aluno1.getAlunoAprovado2());
 
 	}
