@@ -1,5 +1,7 @@
 package projeto.classes;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Aluno {
@@ -15,16 +17,16 @@ public class Aluno {
 	private String serieMatriculado;
 	private String nomeEscola;
 	
-	private Disciplina disciplina = new Disciplina();
+	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
 	}
-	public Disciplina getDisciplina() {
-		return disciplina;
+
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
 	}
-	
-	
+
 	public Aluno() {
 	}
 
@@ -109,8 +111,11 @@ public class Aluno {
 	}
 
 	public double getMediaNota() {
-		return (disciplina.getNota1() + disciplina.getNota2()
-		+ disciplina.getNota3() + disciplina.getNota4()) / 4;
+		double somaNotas = 0.0;
+		for (Disciplina disciplina : disciplinas) {
+			somaNotas += disciplina.getNota(); 
+		}
+		return somaNotas / disciplinas.size();
 	}
 	
 	public boolean getAlunoAprovado() {
@@ -137,14 +142,15 @@ public class Aluno {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
 				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
 				+ ", dataMatricula=" + dataMatricula + ", serieMatriculado=" + serieMatriculado + ", nomeEscola="
-				+ nomeEscola + ", disciplina=" + disciplina + "]";
+				+ nomeEscola + "]";
 	}
-	
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(dataMatricula, dataNascimento, disciplina, idade, nome, nomeEscola, nomeMae, nomePai,
+		return Objects.hash(dataMatricula, dataNascimento, disciplinas, idade, nome, nomeEscola, nomeMae, nomePai,
 				numeroCpf, registroGeral, serieMatriculado);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -155,12 +161,13 @@ public class Aluno {
 			return false;
 		Aluno other = (Aluno) obj;
 		return Objects.equals(dataMatricula, other.dataMatricula)
-				&& Objects.equals(dataNascimento, other.dataNascimento) && Objects.equals(disciplina, other.disciplina)
-				&& idade == other.idade && Objects.equals(nome, other.nome)
-				&& Objects.equals(nomeEscola, other.nomeEscola) && Objects.equals(nomeMae, other.nomeMae)
-				&& Objects.equals(nomePai, other.nomePai) && Objects.equals(numeroCpf, other.numeroCpf)
-				&& Objects.equals(registroGeral, other.registroGeral)
+				&& Objects.equals(dataNascimento, other.dataNascimento)
+				&& Objects.equals(disciplinas, other.disciplinas) && idade == other.idade
+				&& Objects.equals(nome, other.nome) && Objects.equals(nomeEscola, other.nomeEscola)
+				&& Objects.equals(nomeMae, other.nomeMae) && Objects.equals(nomePai, other.nomePai)
+				&& Objects.equals(numeroCpf, other.numeroCpf) && Objects.equals(registroGeral, other.registroGeral)
 				&& Objects.equals(serieMatriculado, other.serieMatriculado);
 	}
+	
 	
 }
