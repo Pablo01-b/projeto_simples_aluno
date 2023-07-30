@@ -33,27 +33,16 @@ public class Program {
 		aluno1.setSerieMatriculado(serie);
 		aluno1.setNomeEscola(escola);
 
-		Disciplina disciplina01 = new Disciplina();
-		disciplina01.setDisciplina("Banco de Dados");
-		disciplina01.setNota(90);
-		aluno1.getDisciplinas().add(disciplina01);
+		for (int pos = 1; pos <= 4; pos++ ) {
+			String nomeDisciplina = JOptionPane.showInputDialog("Nome da disciplina "+ pos + " ?");
+			String notaDisciplina = JOptionPane.showInputDialog("Nota da disciplina" + pos + " ?");
+			Disciplina disciplina = new Disciplina();
+			disciplina.setDisciplina(nomeDisciplina);
+			disciplina.setNota(Double.valueOf(notaDisciplina));
+			
+			aluno1.getDisciplinas().add(disciplina);
+		}
 		
-		Disciplina disciplina02 = new Disciplina();
-		disciplina02.setDisciplina("Matemática Aplicada a Computação");
-		disciplina02.setNota(80);
-		aluno1.getDisciplinas().add(disciplina02);
-		
-		Disciplina disciplina03 = new Disciplina();
-		disciplina03.setDisciplina("Algotimos e Lógica de Programação");
-		disciplina03.setNota(97);
-		aluno1.getDisciplinas().add(disciplina03);
-		
-		Disciplina disciplina04 = new Disciplina();
-		disciplina04.setDisciplina("Java Web");
-		disciplina04.setNota(70);
-		aluno1.getDisciplinas().add(disciplina04);
-		
-
 		System.out.println(aluno1.toString());
 		System.out.println("Média do aluno = " + aluno1.getMediaNota());
 		System.out.println(aluno1.getAlunoAprovado() ? "Aprovado" : "Reprovado");
