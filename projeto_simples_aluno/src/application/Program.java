@@ -17,7 +17,7 @@ public class Program {
 		for(int qtd = 1; qtd <= 2; qtd++) {
 			
 		String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + " ?");
-		String idade = JOptionPane.showInputDialog("Idade");
+		/*String idade = JOptionPane.showInputDialog("Idade");
 		String dataNascimento = JOptionPane.showInputDialog("Data de nascimento");
 		String rg = JOptionPane.showInputDialog("Qual é o RG?");
 		String cpf = JOptionPane.showInputDialog("Qual é o CPF?");
@@ -25,12 +25,12 @@ public class Program {
 		String pai = JOptionPane.showInputDialog("Nome do Pai");
 		String matricula = JOptionPane.showInputDialog("Data de Matricula");
 		String serie = JOptionPane.showInputDialog("Qual a serie matriculado?");
-		String escola = JOptionPane.showInputDialog("Nome da escola");
+		String escola = JOptionPane.showInputDialog("Nome da escola");*/
 
 		Aluno aluno1 = new Aluno();
 
 		aluno1.setNome(nome);
-		aluno1.setIdade(Integer.valueOf(idade));
+		/*aluno1.setIdade(Integer.valueOf(idade));
 		aluno1.setDataNascimento(dataNascimento);
 		aluno1.setRegistroGeral(rg);
 		aluno1.setNumeroCpf(cpf);
@@ -38,7 +38,7 @@ public class Program {
 		aluno1.setNomePai(pai);
 		aluno1.setDataMatricula(matricula);
 		aluno1.setSerieMatriculado(serie);
-		aluno1.setNomeEscola(escola);
+		aluno1.setNomeEscola(escola);*/
 
 		for (int pos = 1; pos <= 4; pos++ ) {
 			String nomeDisciplina = JOptionPane.showInputDialog("Nome da disciplina "+ pos + " ?");
@@ -68,27 +68,17 @@ public class Program {
 		alunos.add(aluno1);
 		}
 		
-		for (Aluno aluno : alunos) {
+		for(int pos = 0; pos < alunos.size(); pos++) {
 			
-		if(aluno.getNome().equalsIgnoreCase("alex")) {
-			alunos.remove(aluno);
-			break;
-		}else {
-			System.out.println(aluno); /*Descrição do objeto na memoria*/
+			Aluno aluno = alunos.get(pos);
+			System.out.println("Aluno = " + aluno.getNome());
 			System.out.println("Média do aluno = " + aluno.getMediaNota());
-			System.out.println(aluno.getAlunoAprovado2());
-			System.out.println("-----------------------------------------------------");
-		}
-		
-		}
-		
-		for(Aluno aluno : alunos) {
-			System.out.println("Alunos que sobraram na lista:");
-			System.out.println(aluno.getNome());
-			System.out.println("Suas matérias são:");
+			System.out.println("Resultado = " + aluno.getAlunoAprovado2());
+			System.out.println("--------------------------------------------------------");
 			
-			for(Disciplina disciplina : aluno.getDisciplinas()) {
-				System.out.println(disciplina.getDisciplina());
+			for (int posd = 0; posd < aluno.getDisciplinas().size(); posd++) {
+				Disciplina disc = aluno.getDisciplinas().get(posd);
+				System.out.println(" Matéria = " + disc.getDisciplina() + " Nota = " + disc.getNota());
 			}
 		}
 	
