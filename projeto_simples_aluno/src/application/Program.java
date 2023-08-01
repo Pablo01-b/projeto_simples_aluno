@@ -1,5 +1,8 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import projeto.classes.Aluno;
@@ -8,8 +11,12 @@ import projeto.classes.Disciplina;
 public class Program {
 
 	public static void main(String[] args) {
-
-		String nome = JOptionPane.showInputDialog("Nome do aluno");
+		
+		List<Aluno> alunos = new ArrayList<Aluno>();
+		
+		for(int qtd = 1; qtd <= 2; qtd++) {
+			
+		String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + " ?");
 		String idade = JOptionPane.showInputDialog("Idade");
 		String dataNascimento = JOptionPane.showInputDialog("Data de nascimento");
 		String rg = JOptionPane.showInputDialog("Qual é o RG?");
@@ -58,10 +65,18 @@ public class Program {
 			}
 		}
 		
-		System.out.println(aluno1); /*Descrição do objeto na memoria*/
-		System.out.println("Média do aluno = " + aluno1.getMediaNota());
-		System.out.println(aluno1.getAlunoAprovado2());
-
+		alunos.add(aluno1);
+		}
+		
+		for (Aluno aluno : alunos) {
+			
+			System.out.println(aluno); /*Descrição do objeto na memoria*/
+			System.out.println("Média do aluno = " + aluno.getMediaNota());
+			System.out.println(aluno.getAlunoAprovado2());
+			System.out.println("-----------------------------------------------------");
+			
+		}
+	
 	}
 
 }
