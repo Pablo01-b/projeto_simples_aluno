@@ -70,11 +70,14 @@ public class Program {
 		
 		for (Aluno aluno : alunos) {
 			
+		if(aluno.getNome().equalsIgnoreCase("alex")) {
 			System.out.println(aluno); /*Descrição do objeto na memoria*/
 			System.out.println("Média do aluno = " + aluno.getMediaNota());
 			System.out.println(aluno.getAlunoAprovado2());
 			System.out.println("-----------------------------------------------------");
-			
+			break;
+		  }
+		
 		}
 	
 	}
