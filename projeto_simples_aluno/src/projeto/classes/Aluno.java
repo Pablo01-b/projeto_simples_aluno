@@ -145,10 +145,10 @@ public class Aluno {
 	
 	@Override
 	public String toString() {
-		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
+		return "Aluno nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
 				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
 				+ ", dataMatricula=" + dataMatricula + ", serieMatriculado=" + serieMatriculado + ", nomeEscola="
-				+ nomeEscola + disciplinas + "]";
+				+ nomeEscola + disciplinas;
 	}
 
 	@Override
@@ -175,5 +175,5 @@ public class Aluno {
 				&& Objects.equals(serieMatriculado, other.serieMatriculado);
 	}
 	
-	
 }
+/*projeto simples finalizado*/
