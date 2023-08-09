@@ -176,5 +176,14 @@ public class Aluno extends Pessoa {
 				&& Objects.equals(serieMatriculado, other.serieMatriculado);
 	}
 	
+	@Override /*Identifica método sobreescrito*/
+	public boolean pessoaMaiorIdade() {
+		
+		return idade >= 21;
+	}
+	
+	public String msgMaiorIdade() {
+		return this.pessoaMaiorIdade() ? "aluno é maior de idade" : "aluno é menor de idade";
+	}
 }
 
