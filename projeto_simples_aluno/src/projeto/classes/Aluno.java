@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 import projeto.constantes.StatusAluno;
-
+/*Classe filha de Pessoa, que extende de Pessoa*/
 public class Aluno extends Pessoa {
 	
 	private String dataMatricula;
