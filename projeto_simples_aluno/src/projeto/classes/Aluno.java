@@ -6,19 +6,11 @@ import java.util.Objects;
 
 import projeto.constantes.StatusAluno;
 
-public class Aluno {
+public class Aluno extends Pessoa {
 	
-	private String nome;
-	private int idade;
-	private String dataNascimento;
-	private String registroGeral;
-	private String numeroCpf;
-	private String nomeMae;
-	private String nomePai;
 	private String dataMatricula;
 	private String serieMatriculado;
 	private String nomeEscola;
-	
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
 	public List<Disciplina> getDisciplinas() {
@@ -30,6 +22,15 @@ public class Aluno {
 	}
 
 	public Aluno() {
+	}
+	
+	public Aluno (String nomePadrao) {
+		nome = nomePadrao;
+	}
+	
+	public Aluno (String nomePadrao, int idadePadrao) {
+		nome = nomePadrao;
+		idade = idadePadrao;
 	}
 
 	public void setNome(String nome) {
@@ -176,4 +177,4 @@ public class Aluno {
 	}
 	
 }
-/*projeto simples finalizado*/
+

@@ -7,4 +7,4 @@ public class StatusAluno {
 	public static String RECUPERACAO = "Recuperação";
 	public static String REPROVADO = "Reprovado";
 }
-/*projeto simples finalizado*/
+
