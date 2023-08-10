@@ -2,6 +2,7 @@ package application;
 
 import projeto.classes.Aluno;
 import projeto.classes.Diretor;
+import projeto.classes.Pessoa;
 import projeto.classes.Secretario;
 
 public class TestandoClassesFilhas {
@@ -22,6 +23,7 @@ public class TestandoClassesFilhas {
 		secretario.setExperiencia("Administração");
 		secretario.setNumeroCpf("000888555669");
 		secretario.setIdade(18);
+		secretario.setNome("João");
 		
 		System.out.println(aluno);
 		System.out.println(diretor);
@@ -34,6 +36,16 @@ public class TestandoClassesFilhas {
 		System.out.println(" Salário é = " + aluno.salario());
 		System.out.println(" Salário é = " + diretor.salario());
 		System.out.println(" Salário é = " + secretario.salario());
+		
+		
+		teste(aluno);
+		teste(diretor);
+		teste(secretario);
+	}
+	
+	public static void teste(Pessoa pessoa) {
+		System.out.println("Essa pessoa é demais = " 
+	+ pessoa.getNome() + " e o salario é de = " + pessoa.salario());
 	}
 
 }
