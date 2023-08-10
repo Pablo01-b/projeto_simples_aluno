@@ -1,7 +1,7 @@
 package projeto.classes;
 
 /*Herança Classe pai ou classe master ou superClasse - (Atributos Comuns a todos os objetos filhos*/
-public class Pessoa {
+public abstract class Pessoa {
 	
 	protected String nome;
 	protected int idade;
