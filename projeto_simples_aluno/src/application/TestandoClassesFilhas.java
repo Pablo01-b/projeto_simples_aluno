@@ -31,6 +31,9 @@ public class TestandoClassesFilhas {
 		System.out.println(diretor.pessoaMaiorIdade());
 		System.out.println(secretario.pessoaMaiorIdade());
 		
+		System.out.println(" Salário é = " + aluno.salario());
+		System.out.println(" Salário é = " + diretor.salario());
+		System.out.println(" Salário é = " + secretario.salario());
 	}
 
 }
