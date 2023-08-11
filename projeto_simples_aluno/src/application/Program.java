@@ -10,6 +10,7 @@ import projeto.classes.Aluno;
 import projeto.classes.Disciplina;
 import projeto.classes.Secretario;
 import projeto.constantes.StatusAluno;
+import projeto.interfaces.PermitirAcesso;
 
 public class Program {
 
@@ -18,11 +19,7 @@ public class Program {
 		String login = JOptionPane.showInputDialog("Informe o login:");
 		String senha = JOptionPane.showInputDialog("Informe a senha:");
 		
-		Secretario secretario = new Secretario();/*Diretamente com o objeto*/
-		secretario.setLogin(login);
-		secretario.setSenha(senha);
-		
-		if(secretario.autenticar()) {/*se TRUE acessa se FALSE não acessa*/
+		if(new Secretario().autenticar(login, senha)) {/*se TRUE acessa se FALSE não acessa*/
 		
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		
