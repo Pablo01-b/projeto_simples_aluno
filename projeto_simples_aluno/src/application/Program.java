@@ -16,6 +16,8 @@ public class Program {
 
 	public static void main(String[] args) {
 		
+		try {
+		
 		String login = JOptionPane.showInputDialog("Informe o login:");
 		String senha = JOptionPane.showInputDialog("Informe a senha:");
 		
@@ -28,7 +30,7 @@ public class Program {
 		HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 		
 		
-		for(int qtd = 1; qtd <= 3; qtd++) {
+		for(int qtd = 1; qtd <= 1; qtd++) {
 			
 		String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + " ?");
 		String idade = JOptionPane.showInputDialog("Idade");
@@ -150,6 +152,13 @@ public class Program {
 		JOptionPane.showMessageDialog(null, "Acesso não permitido");
 	}
 
+		//aqui
+		}catch (Exception e) {
+			e.printStackTrace(); /*Imprime erro no console Java*/
+			JOptionPane.showMessageDialog(null, "Erro ao processar notas");
+		}
 	}
+	
+	
 }
 
