@@ -33,7 +33,7 @@ public class Program {
 		for(int qtd = 1; qtd <= 1; qtd++) {
 			
 		String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + " ?");
-		String idade = JOptionPane.showInputDialog("Idade");
+		/*String idade = JOptionPane.showInputDialog("Idade");
 		String dataNascimento = JOptionPane.showInputDialog("Data de nascimento");
 		String rg = JOptionPane.showInputDialog("Qual é o RG?");
 		String cpf = JOptionPane.showInputDialog("Qual é o CPF?");
@@ -41,12 +41,12 @@ public class Program {
 		String pai = JOptionPane.showInputDialog("Nome do Pai");
 		String matricula = JOptionPane.showInputDialog("Data de matricula");
 		String serie = JOptionPane.showInputDialog("Qual a serie matriculado?");
-		String escola = JOptionPane.showInputDialog("Nome da escola");
+		String escola = JOptionPane.showInputDialog("Nome da escola");*/
 
 		Aluno aluno1 = new Aluno();
 
 		aluno1.setNome(nome);
-		aluno1.setIdade(Integer.valueOf(idade));
+		/*aluno1.setIdade(Integer.valueOf(idade));
 		aluno1.setDataNascimento(dataNascimento);
 		aluno1.setRegistroGeral(rg);
 		aluno1.setNumeroCpf(cpf);
@@ -54,9 +54,9 @@ public class Program {
 		aluno1.setNomePai(pai);
 		aluno1.setDataMatricula(matricula);
 		aluno1.setSerieMatriculado(serie);
-		aluno1.setNomeEscola(escola);
+		aluno1.setNomeEscola(escola);*/
 
-		for (int pos = 1; pos <= 4; pos++ ) {
+		for (int pos = 1; pos <= 2; pos++ ) {
 			String nomeDisciplina = JOptionPane.showInputDialog("Nome da disciplina "+ pos + " ?");
 			String notaDisciplina = JOptionPane.showInputDialog("Nota da disciplina " + pos + " ?");
 			
@@ -104,7 +104,7 @@ public class Program {
 		System.out.println("--------------------Lista de Aprovados--------------------");
 		for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
 			System.out.println("Nome do Aluno(a): " + aluno.getNome());
-			System.out.println("Idade: " + aluno.getIdade());
+			/*System.out.println("Idade: " + aluno.getIdade());
 			System.out.println("Data de nascimento: " + aluno.getDataNascimento());
 			System.out.println("RG: " + aluno.getRegistroGeral());
 			System.out.println("CPF: " + aluno.getNumeroCpf());
@@ -112,7 +112,7 @@ public class Program {
 			System.out.println("Nome do pai: " + aluno.getNomePai());
 			System.out.println("Data de matrícula: " + aluno.getDataMatricula());
 			System.out.println("Serie matriculado: " + aluno.getSerieMatriculado());
-			System.out.println("Nome da escola: " + aluno.getNomeEscola());
+			System.out.println("Nome da escola: " + aluno.getNomeEscola());*/
 			System.out.println(aluno.getDisciplinas());
 			System.out.println("Resultado = " + aluno.getAlunoAprovado2() + " com média de = " + aluno.getMediaNota());
 		}
@@ -120,7 +120,7 @@ public class Program {
 		System.out.println("--------------------Lista de Recuperação--------------------");
 		for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
 			System.out.println("Nome do Aluno(a): " + aluno.getNome());
-			System.out.println("Idade: " + aluno.getIdade());
+			/*System.out.println("Idade: " + aluno.getIdade());
 			System.out.println("Data de nascimento: " + aluno.getDataNascimento());
 			System.out.println("RG: " + aluno.getRegistroGeral());
 			System.out.println("CPF: " + aluno.getNumeroCpf());
@@ -128,7 +128,7 @@ public class Program {
 			System.out.println("Nome do pai: " + aluno.getNomePai());
 			System.out.println("Data de matrícula: " + aluno.getDataMatricula());
 			System.out.println("Serie matriculado: " + aluno.getSerieMatriculado());
-			System.out.println("Nome da escola: " + aluno.getNomeEscola());
+			System.out.println("Nome da escola: " + aluno.getNomeEscola());*/
 			System.out.println(aluno.getDisciplinas());
 			System.out.println("Resultado = " + aluno.getAlunoAprovado2() + " com média de = " + aluno.getMediaNota());
 		}
@@ -136,7 +136,7 @@ public class Program {
 		System.out.println("--------------------Lista de Reprovados--------------------");
 		for (Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
 			System.out.println("Nome do Aluno(a): " + aluno.getNome());
-			System.out.println("Idade: " + aluno.getIdade());
+			/*System.out.println("Idade: " + aluno.getIdade());
 			System.out.println("Data de nascimento: " + aluno.getDataNascimento());
 			System.out.println("RG: " + aluno.getRegistroGeral());
 			System.out.println("CPF: " + aluno.getNumeroCpf());
@@ -144,7 +144,7 @@ public class Program {
 			System.out.println("Nome do pai: " + aluno.getNomePai());
 			System.out.println("Data de matrícula: " + aluno.getDataMatricula());
 			System.out.println("Serie matriculado: " + aluno.getSerieMatriculado());
-			System.out.println("Nome da escola: " + aluno.getNomeEscola());
+			System.out.println("Nome da escola: " + aluno.getNomeEscola());*/
 			System.out.println(aluno.getDisciplinas());
 			System.out.println("Resultado = " + aluno.getAlunoAprovado2() + " com média de = " + aluno.getMediaNota());
 		}
@@ -154,11 +154,26 @@ public class Program {
 
 		//aqui
 		}catch (Exception e) {
-			e.printStackTrace(); /*Imprime erro no console Java*/
-			JOptionPane.showMessageDialog(null, "Erro ao processar notas");
+			
+			StringBuilder saida = new StringBuilder();
+			
+			/*Imprime erro no console Java*/
+			e.printStackTrace(); 
+		
+			System.out.println(" Mensagem: " + e.getMessage());
+			
+			for(int i = 0; i <= e.getStackTrace().length; i++) {
+				
+				saida.append("\n Classe de erro " + e.getStackTrace()[i].getClassName());
+				saida.append("\n Método de erro " + e.getStackTrace()[i].getMethodName());
+				saida.append("\n Linha de erro " + e.getStackTrace()[i].getLineNumber());
+				saida.append("\n Linha de erro " + e.getStackTrace()[i].getClass().getName());
+				
+				JOptionPane.showMessageDialog(null, "Erro ao processar notas " + saida.toString());
+			}
+			
 		}
+	
 	}
-	
-	
 }
 
