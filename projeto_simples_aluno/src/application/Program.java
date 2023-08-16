@@ -1,9 +1,9 @@
 package application;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 
 import javax.swing.JOptionPane;
 
@@ -18,8 +18,6 @@ public class Program {
 	public static void main(String[] args) {
 		
 		try {
-			
-		new File("arquivo.txt");
 		
 		String login = JOptionPane.showInputDialog("Informe o login:");
 		String senha = JOptionPane.showInputDialog("Informe a senha:");
@@ -182,6 +180,7 @@ public class Program {
 		
 		}catch (Exception e) {
 			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro inesperado: " + e.getClass().getName());
 		}
 	}
 }
