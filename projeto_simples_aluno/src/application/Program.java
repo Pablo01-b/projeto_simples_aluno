@@ -1,5 +1,6 @@
 package application;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,6 +18,8 @@ public class Program {
 	public static void main(String[] args) {
 		
 		try {
+			
+		new File("arquivo.txt");
 		
 		String login = JOptionPane.showInputDialog("Informe o login:");
 		String senha = JOptionPane.showInputDialog("Informe a senha:");
@@ -33,8 +36,9 @@ public class Program {
 		for(int qtd = 1; qtd <= 1; qtd++) {
 			
 		String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + " ?");
-		/*String idade = JOptionPane.showInputDialog("Idade");
-		String dataNascimento = JOptionPane.showInputDialog("Data de nascimento");
+		String idade = JOptionPane.showInputDialog("Idade");
+		
+		/*String dataNascimento = JOptionPane.showInputDialog("Data de nascimento");
 		String rg = JOptionPane.showInputDialog("Qual é o RG?");
 		String cpf = JOptionPane.showInputDialog("Qual é o CPF?");
 		String mae = JOptionPane.showInputDialog("Nome da Mãe");
@@ -46,8 +50,9 @@ public class Program {
 		Aluno aluno1 = new Aluno();
 
 		aluno1.setNome(nome);
-		/*aluno1.setIdade(Integer.valueOf(idade));
-		aluno1.setDataNascimento(dataNascimento);
+		aluno1.setIdade(Integer.valueOf(idade));
+		
+		/*aluno1.setDataNascimento(dataNascimento);
 		aluno1.setRegistroGeral(rg);
 		aluno1.setNumeroCpf(cpf);
 		aluno1.setNomeMae(mae);
@@ -56,7 +61,7 @@ public class Program {
 		aluno1.setSerieMatriculado(serie);
 		aluno1.setNomeEscola(escola);*/
 
-		for (int pos = 1; pos <= 2; pos++ ) {
+		for (int pos = 1; pos <= 1; pos++ ) {
 			String nomeDisciplina = JOptionPane.showInputDialog("Nome da disciplina "+ pos + " ?");
 			String notaDisciplina = JOptionPane.showInputDialog("Nota da disciplina " + pos + " ?");
 			
@@ -104,8 +109,8 @@ public class Program {
 		System.out.println("--------------------Lista de Aprovados--------------------");
 		for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
 			System.out.println("Nome do Aluno(a): " + aluno.getNome());
-			/*System.out.println("Idade: " + aluno.getIdade());
-			System.out.println("Data de nascimento: " + aluno.getDataNascimento());
+			System.out.println("Idade: " + aluno.getIdade());
+			/*System.out.println("Data de nascimento: " + aluno.getDataNascimento());
 			System.out.println("RG: " + aluno.getRegistroGeral());
 			System.out.println("CPF: " + aluno.getNumeroCpf());
 			System.out.println("Nome da mãe: " + aluno.getNomeMae());
@@ -120,8 +125,8 @@ public class Program {
 		System.out.println("--------------------Lista de Recuperação--------------------");
 		for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
 			System.out.println("Nome do Aluno(a): " + aluno.getNome());
-			/*System.out.println("Idade: " + aluno.getIdade());
-			System.out.println("Data de nascimento: " + aluno.getDataNascimento());
+			System.out.println("Idade: " + aluno.getIdade());
+			/*System.out.println("Data de nascimento: " + aluno.getDataNascimento());
 			System.out.println("RG: " + aluno.getRegistroGeral());
 			System.out.println("CPF: " + aluno.getNumeroCpf());
 			System.out.println("Nome da mãe: " + aluno.getNomeMae());
@@ -136,8 +141,8 @@ public class Program {
 		System.out.println("--------------------Lista de Reprovados--------------------");
 		for (Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
 			System.out.println("Nome do Aluno(a): " + aluno.getNome());
-			/*System.out.println("Idade: " + aluno.getIdade());
-			System.out.println("Data de nascimento: " + aluno.getDataNascimento());
+			System.out.println("Idade: " + aluno.getIdade());
+			/*System.out.println("Data de nascimento: " + aluno.getDataNascimento());
 			System.out.println("RG: " + aluno.getRegistroGeral());
 			System.out.println("CPF: " + aluno.getNumeroCpf());
 			System.out.println("Nome da mãe: " + aluno.getNomeMae());
@@ -153,7 +158,7 @@ public class Program {
 	}
 
 		//aqui
-		}catch (Exception e) {
+		}catch (NumberFormatException e) {
 			
 			StringBuilder saida = new StringBuilder();
 			
@@ -168,12 +173,18 @@ public class Program {
 				saida.append("\n Método de erro " + e.getStackTrace()[i].getMethodName());
 				saida.append("\n Linha de erro " + e.getStackTrace()[i].getLineNumber());
 				saida.append("\n Linha de erro " + e.getStackTrace()[i].getClass().getName());
-				
-				JOptionPane.showMessageDialog(null, "Erro ao processar notas " + saida.toString());
 			}
 			
+			JOptionPane.showMessageDialog(null, "Erro de conversão de numero " + saida.toString());
+			
+		}catch (NullPointerException e) {
+			JOptionPane.showMessageDialog(null, "Opaa um null pointer exeption: " + e.getClass());
+		
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
-	
 	}
 }
+
+
 
