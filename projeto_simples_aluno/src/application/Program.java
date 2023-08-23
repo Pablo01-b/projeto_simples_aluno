@@ -1,11 +1,8 @@
 package application;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -14,7 +11,6 @@ import projeto.classes.Diretor;
 import projeto.classes.Disciplina;
 import projeto.classesauxiliares.FuncaoAutenticacao;
 import projeto.constantes.StatusAluno;
-import projeto.excecao.ExcecaoProcessarNota;
 
 public class Program {
 
@@ -22,7 +18,6 @@ public class Program {
 		
 		
 		try {
-			lerArquivo();
 		
 		String login = JOptionPane.showInputDialog("Informe o login:");
 		String senha = JOptionPane.showInputDialog("Informe a senha:");
@@ -161,8 +156,7 @@ public class Program {
 	}
 
 		//aqui
-		}catch (NumberFormatException e) {
-			
+		}catch (Exception e) {
 			StringBuilder saida = new StringBuilder();
 			
 			/*Imprime erro no console Java*/
@@ -176,28 +170,13 @@ public class Program {
 				saida.append("\n Método de erro " + e.getStackTrace()[i].getMethodName());
 				saida.append("\n Linha de erro " + e.getStackTrace()[i].getLineNumber());
 				saida.append("\n Linha de erro " + e.getStackTrace()[i].getClass().getName());
-			}
+				
+			}JOptionPane.showMessageDialog(null, "Erro encontrado" + saida.toString());
 			
-			JOptionPane.showMessageDialog(null, "Erro de conversão de numero " + saida.toString());
 			
-		}catch (NullPointerException e) {
-			JOptionPane.showMessageDialog(null, "Opaa um null pointer exeption: " + e.getClass());
-		
-		}catch (ExcecaoProcessarNota e)/*Captura todas as exceções que não prevemos*/ {
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro da exceção customizada: " + e.getClass().getName());
 		}finally {/*Sempre é executado ocorrendo erros ou não*/
 			/*Finally sempre é usado quando precisa executar um processo acontecendo erro ou não*/
 			JOptionPane.showMessageDialog(null, "Obrigado por aprender Java comigo");
-		}
-	}
-	
-	public static void lerArquivo() throws ExcecaoProcessarNota{
-		try {
-		File fil = new File("c//lines.txt");
-		Scanner sc = new Scanner(fil);
-		}catch (FileNotFoundException e) {
-			throw new ExcecaoProcessarNota(e.getMessage());
 		}
 	}
 }
